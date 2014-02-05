@@ -1,9 +1,26 @@
 import arithmetic as art
 
 operators = ['+', '-', '*', '/', 'square', 'cube', 'pow', 'mod']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def validate_input(user_input):
-    pass
+    for i in user_input:
+        is_a_number = True
+        for char in i:
+            if char not in numbers:
+                is_a_number = False
+        if is_a_number == False and i not in operators:
+            print "To use this calculator, please input an operator followed by numbers."
+            break
+
+
+    if user_input[0] not in operators:
+        print "Please use one of the following operators (or q for quit): "
+        print operators
+        return False
+    #elif len(user_input) > 3 or len(user_input) < 1:
+     #   print ""
+    return True
 
 while True:
     raw_numbers = raw_input("> ")
@@ -17,8 +34,8 @@ while True:
 
     nums = tokens[1:]
 
-    #if validate_input(tokens) == False:
-     #   continue
+    if validate_input(tokens) == False:
+        continue
 
     n1 = int(nums[0])
 
