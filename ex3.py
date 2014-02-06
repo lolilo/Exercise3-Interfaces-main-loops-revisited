@@ -65,10 +65,13 @@ while True:
     error_string = "For %s, please input \" %r \" followed by %s number(s), separated by spaces." 
 
     if operator == '+':
-        if num_args != 2:
-            print error_string %("addition", "+", "two")
-        else: 
-            print art.add(nums[0], nums[1])
+        if num_args < 2:
+            print error_string %("addition", "+", "two or more")
+        else:
+            ans = 0
+            for n in nums:
+                ans = art.add(ans, n)
+            print ans
 
     elif operator == '-':
         if num_args != 2:
@@ -77,10 +80,13 @@ while True:
             print art.subtract(nums[0], nums[1])
 
     elif operator == '*':
-        if num_args != 2:
+        if num_args < 2:
             print error_string %("multiplication", "*", "two")
         else: 
-            print art.multiply(nums[0], nums[1])
+            ans = 1
+            for n in nums:
+                ans = art.multiply(ans, n)
+            print ans
 
     elif operator == '/':
         if num_args != 2:
