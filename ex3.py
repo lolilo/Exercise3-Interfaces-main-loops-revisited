@@ -1,22 +1,28 @@
 import arithmetic as art
 
 operators = ['+', '-', '*', '/', 'square', 'cube', 'pow', 'mod']
-numbers = ['-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def validate_input(user_input):
+
     if len(user_input) < 1:
-        print "To use this calculator, please input an operator followed by (an) integer(s)."
+        print "To use this calculator, please input an operator followed by integer(s)."
         return False
-    for i in user_input:
-        #print "Evaluating %s" % i
+
+    operator = user_input[0]
+    if operator not in operators:
+        print "To use this calculator, please input an operator followed by integer(s)."
+        return False
+
+    integers = user_input[1:]
+    for i in integers:
         is_a_number = True
         for char in i:
-            if char not in numbers:
-                #print char + " is not a number."
+            if char not in numbers and not (char == '-' and i.find(char) == 0 and len(i) > 1):
                 is_a_number = False
-        if is_a_number == False and i not in operators:
-            print "To use this calculator, please input an operator followed by (an) integer(s)."
-            return False
+        if is_a_number == False:
+            print "To use this calculator, please input an operator followed by integer(s)."
+            return False   
 
 
     if user_input[0] not in operators:
