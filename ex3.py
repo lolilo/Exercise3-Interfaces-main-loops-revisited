@@ -81,7 +81,7 @@ while True:
 
     elif operator == '*':
         if num_args < 2:
-            print error_string %("multiplication", "*", "two")
+            print error_string %("multiplication", "*", "two or more")
         else: 
             ans = 1
             for n in nums:
