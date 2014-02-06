@@ -4,14 +4,15 @@ operators = ['+', '-', '*', '/', 'square', 'cube', 'pow', 'mod']
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def validate_input(user_input):
+    error_string = "To use this calculator, please input an operator followed by integer(s)."
 
     if len(user_input) < 1:
-        print "To use this calculator, please input an operator followed by integer(s)."
+        print error_string
         return False
 
     operator = user_input[0]
     if operator not in operators:
-        print "To use this calculator, please input an operator followed by integer(s)."
+        print error_string
         return False
 
     integers = user_input[1:]
@@ -21,7 +22,7 @@ def validate_input(user_input):
             if char not in numbers and not (char == '-' and i.find(char) == 0 and len(i) > 1):
                 is_a_number = False
         if is_a_number == False:
-            print "To use this calculator, please input an operator followed by integer(s)."
+            print error_string
             return False   
 
 
