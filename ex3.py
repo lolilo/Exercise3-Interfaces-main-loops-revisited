@@ -111,5 +111,7 @@ while True:
     elif operator == 'mod':
         if num_args != 2:
             print error_string %("mod", "mod", "two")
+        elif nums[1] == 0:
+            print "Cannot divide by zero!"
         else: 
             print art.mod(nums[0],nums[1])
