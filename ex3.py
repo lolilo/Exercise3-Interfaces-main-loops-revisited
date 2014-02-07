@@ -10,11 +10,13 @@ def validate_input(user_input):
         print error_string
         return False
 
+    # Check if first char is an operator.
     operator = user_input[0]
     if operator not in operators:
         print error_string
         return False
 
+    # Check if all input char after the first one are numbers
     integers = user_input[1:]
     for i in integers:
         is_a_number = True
